@@ -2,8 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-require('dotenv').config();
-
+require("dotenv").config();
+const authRoter = require("./routes/auth/auth-routes");
 
 //create a database connection -> u can also
 //create a separate file for this and then import/use that file here
@@ -20,7 +20,6 @@ mongoose
   )
   .then(() => console.log("MongoDB connected"))
   .catch((error) => console.error("MongoDB connection error:", error));
-
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -42,5 +41,6 @@ app.use(
 
 app.use(cookieParser());
 app.use(express.json());
+app.use("/api/auth", authRoter);
 
 app.listen(PORT, () => console.log(`Server is now running on port ${PORT}`));

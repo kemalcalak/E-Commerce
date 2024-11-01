@@ -1,14 +1,13 @@
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../ui/select";
-import { Textarea } from "../ui/textarea";
+import React from 'react';
+import { 
+  TextField, 
+  Button, 
+  Select, 
+  MenuItem, 
+  InputLabel, 
+  FormControl, 
+  TextareaAutosize 
+} from '@mui/material';
 
 function CommonForm({
   formControls,
@@ -25,7 +24,7 @@ function CommonForm({
     switch (getControlItem.componentType) {
       case "input":
         element = (
-          <Input
+          <TextField
             name={getControlItem.name}
             placeholder={getControlItem.placeholder}
             id={getControlItem.name}
@@ -37,40 +36,42 @@ function CommonForm({
                 [getControlItem.name]: event.target.value,
               })
             }
+            fullWidth
+            variant="outlined"
           />
         );
-
         break;
+
       case "select":
         element = (
-          <Select
-            onValueChange={(value) =>
-              setFormData({
-                ...formData,
-                [getControlItem.name]: value,
-              })
-            }
-            value={value}
-          >
-            <SelectTrigger className="w-full">
-              <SelectValue placeholder={getControlItem.label} />
-            </SelectTrigger>
-            <SelectContent>
+          <FormControl fullWidth>
+            <InputLabel>{getControlItem.label}</InputLabel>
+            <Select
+              name={getControlItem.name}
+              value={value}
+              label={getControlItem.label}
+              onChange={(event) =>
+                setFormData({
+                  ...formData,
+                  [getControlItem.name]: event.target.value,
+                })
+              }
+            >
               {getControlItem.options && getControlItem.options.length > 0
                 ? getControlItem.options.map((optionItem) => (
-                    <SelectItem key={optionItem.id} value={optionItem.id}>
+                    <MenuItem key={optionItem.id} value={optionItem.id}>
                       {optionItem.label}
-                    </SelectItem>
+                    </MenuItem>
                   ))
                 : null}
-            </SelectContent>
-          </Select>
+            </Select>
+          </FormControl>
         );
-
         break;
+
       case "textarea":
         element = (
-          <Textarea
+          <TextareaAutosize
             name={getControlItem.name}
             placeholder={getControlItem.placeholder}
             id={getControlItem.id}
@@ -81,14 +82,20 @@ function CommonForm({
                 [getControlItem.name]: event.target.value,
               })
             }
+            minRows={3}
+            style={{ 
+              width: '100%', 
+              padding: '8px', 
+              borderRadius: '4px', 
+              border: '1px solid rgba(0, 0, 0, 0.23)' 
+            }}
           />
         );
-
         break;
 
       default:
         element = (
-          <Input
+          <TextField
             name={getControlItem.name}
             placeholder={getControlItem.placeholder}
             id={getControlItem.name}
@@ -100,6 +107,8 @@ function CommonForm({
                 [getControlItem.name]: event.target.value,
               })
             }
+            fullWidth
+            variant="outlined"
           />
         );
         break;
@@ -110,15 +119,25 @@ function CommonForm({
 
   return (
     <form onSubmit={onSubmit}>
-      <div className="flex flex-col gap-3">
+      <div style={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        gap: '16px' 
+      }}>
         {formControls.map((controlItem) => (
-          <div className="grid w-full gap-1.5" key={controlItem.name}>
-            <Label className="mb-1">{controlItem.label}</Label>
+          <div key={controlItem.name}>
+            <InputLabel shrink>{controlItem.label}</InputLabel>
             {renderInputsByComponentType(controlItem)}
           </div>
         ))}
       </div>
-      <Button disabled={isBtnDisabled} type="submit" className="mt-2 w-full">
+      <Button 
+        disabled={isBtnDisabled} 
+        type="submit" 
+        variant="contained" 
+        fullWidth 
+        style={{ marginTop: '16px' }}
+      >
         {buttonText || "Submit"}
       </Button>
     </form>
