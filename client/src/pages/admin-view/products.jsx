@@ -40,7 +40,7 @@ function AdminProducts() {
   const [imageLoadingState, setImageLoadingState] = useState(false);
   const [currentEditedId, setCurrentEditedId] = useState(null);
 
-  const { productList } = useSelector((state) => state.adminProducts);
+  const { productList } = useSelector((state) => state.adminProducts) || [];
   const dispatch = useDispatch();
   const { toast } = useToast();
 

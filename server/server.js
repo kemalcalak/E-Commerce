@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 require("dotenv").config();
 const authRoter = require("./routes/auth/auth-routes");
+const adminProductsRouter = require("./routes/admin/products-routes");
 
 //create a database connection -> u can also
 //create a separate file for this and then import/use that file here
@@ -42,5 +43,6 @@ app.use(
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api/auth", authRoter);
+app.use("/api/admin/products", adminProductsRouter);
 
 app.listen(PORT, () => console.log(`Server is now running on port ${PORT}`));
