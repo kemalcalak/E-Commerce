@@ -10,7 +10,7 @@ export const addNewProduct = createAsyncThunk(
   "/products/addnewproduct",
   async (formData) => {
     const result = await axios.post(
-      `${process.env.REACT_APP_URL}api/admin/products/add`, 
+      "http://localhost:5000/api/admin/products/add",
       formData,
       {
         headers: {
@@ -23,13 +23,11 @@ export const addNewProduct = createAsyncThunk(
   }
 );
 
-
-
 export const fetchAllProducts = createAsyncThunk(
   "/products/fetchAllProducts",
   async () => {
     const result = await axios.get(
-      `${process.env.REACT_APP_URL}api/admin/products`
+      "http://localhost:5000/api/admin/products/get"
     );
 
     return result?.data;
@@ -40,7 +38,7 @@ export const editProduct = createAsyncThunk(
   "/products/editProduct",
   async ({ id, formData }) => {
     const result = await axios.put(
-      `${process.env.REACT_APP_URL}api/admin/products/edit/${id}`,
+      `http://localhost:5000/api/admin/products/edit/${id}`,
       formData,
       {
         headers: {
@@ -57,7 +55,7 @@ export const deleteProduct = createAsyncThunk(
   "/products/deleteProduct",
   async (id) => {
     const result = await axios.delete(
-      `${process.env.REACT_APP_URL}api/admin/products/delete/${id}`
+      `http://localhost:5000/api/admin/products/delete/${id}`
     );
 
     return result?.data;
