@@ -1,4 +1,4 @@
-```markdown
+
 # E-Commerce Project
 
 ![E-Commerce](https://res.cloudinary.com/dkqu2s9gz/image/upload/v1730560704/alwkum2mk75sdptfkicw.png) 
