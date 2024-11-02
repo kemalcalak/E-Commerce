@@ -47,6 +47,7 @@ const brandsWithIcon = [
   { id: "zara", label: "Zara", icon: Images },
   { id: "h&m", label: "H&M", icon: Heater },
 ];
+
 function ShoppingHome() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { productList, productDetails } = useSelector(
@@ -127,9 +128,9 @@ function ShoppingHome() {
           ? featureImageList.map((slide, index) => (
               <img
                 src={slide?.image}
-                key={index}
+                key={slide?.id || index} 
                 className={`${
-                  index === currentSlide ? "opacity-100" : "opacity-0"
+                  slide === featureImageList[currentSlide] ? "opacity-100" : "opacity-0"
                 } absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000`}
               />
             ))
@@ -167,8 +168,9 @@ function ShoppingHome() {
             Shop by category
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {categoriesWithIcon.map((categoryItem) => (
+            {categoriesWithIcon.map((categoryItem, index) => (
               <Card
+                key={categoryItem.id || index} 
                 onClick={() =>
                   handleNavigateToListingPage(categoryItem, "category")
                 }
@@ -188,8 +190,9 @@ function ShoppingHome() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8">Shop by Brand</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {brandsWithIcon.map((brandItem) => (
+            {brandsWithIcon.map((brandItem, index) => (
               <Card
+                key={brandItem.id || index} 
                 onClick={() => handleNavigateToListingPage(brandItem, "brand")}
                 className="cursor-pointer hover:shadow-lg transition-shadow"
               >
@@ -210,8 +213,9 @@ function ShoppingHome() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {productList && productList.length > 0
-              ? productList.map((productItem) => (
+              ? productList.map((productItem, index) => (
                   <ShoppingProductTile
+                    key={productItem.id || index} 
                     handleGetProductDetails={handleGetProductDetails}
                     product={productItem}
                     handleAddtoCart={handleAddtoCart}
