@@ -123,7 +123,7 @@ E-Commerce/
 │   └── server.js           # Backend entry point
 ├── .env                    # Environment variables
 ├── package.json           # Project metadata and dependencies
-├── README.md             # Project documentation
+└──README.md             # Project documentation
 ```
 
 ## Contact
