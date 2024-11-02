@@ -1,13 +1,45 @@
-const express = require("express");
+const Feature = require("../../models/Feature");
 
-const {
-  addFeatureImage,
-  getFeatureImages,
-} = require("../../controllers/common/feature-controller");
+const addFeatureImage = async (req, res) => {
+  try {
+    const { image } = req.body;
 
-const router = express.Router();
+    console.log(image, "image");
 
-router.post("/add", addFeatureImage);
-router.get("/get", getFeatureImages);
+    const featureImages = new Feature({
+      image,
+    });
 
-module.exports = router;
+    await featureImages.save();
+
+    res.status(201).json({
+      success: true,
+      data: featureImages,
+    });
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({
+      success: false,
+      message: "Some error occured!",
+    });
+  }
+};
+
+const getFeatureImages = async (req, res) => {
+  try {
+    const images = await Feature.find({});
+
+    res.status(200).json({
+      success: true,
+      data: images,
+    });
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({
+      success: false,
+      message: "Some error occured!",
+    });
+  }
+};
+
+module.exports = { addFeatureImage, getFeatureImages };
