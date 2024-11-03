@@ -72,12 +72,20 @@ npm install
    
 In the `server` directory, create a `.env` file and add:
 ```plaintext
-MONGODB_USERNAME=your_mongodb_username
-MONGODB_PASSWORD=your_mongodb_password
-DATABASE_NAME=your_database_name
+MONGODB_URL=your_mongodb_url
 CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
 CLOUDINARY_API_KEY=your_cloudinary_api_key
 CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+PAYPAL_CLIENT_ID=your_paypal_client_id
+PAYPAL_SECRET=your_paypal_secret
+PAYPAL_MODE=your_paypal_mode
+PORT=your_port
+CLIENT_BASE_URL=your_client_base_url
+```
+
+In the `client` directory, create a `.env` file and add:
+```plaintext
+VITE_API_URL=your_vite_api_url
 ```
 
 4. **Run the application**:

@@ -18,14 +18,14 @@ const PORT = process.env.PORT || 5000;
 
 mongoose
   .connect(
-    `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.6j5hs.mongodb.net/${process.env.DATABASE_NAME}?retryWrites=true&w=majority`
+    process.env.MONGODB_URL,
   )
   .then(() => console.log("MongoDB connected"))
   .catch((error) => console.error("MongoDB connection error:", error));
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_BASE_URL,
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
