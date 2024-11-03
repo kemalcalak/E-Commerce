@@ -27,8 +27,7 @@ This E-Commerce project is a full-stack web application that allows users to bro
 - Tailwind CSS
 - Axios
 - React Router
-- Redux (optional)
-- TypeScript (optional)
+- Redux
 
 ### Backend
 
@@ -38,7 +37,7 @@ This E-Commerce project is a full-stack web application that allows users to bro
 - Mongoose
 - JWT (JSON Web Token)
 - bcrypt
-- Cloudinary (optional)
+- Cloudinary
 
 ## Getting Started
 
