@@ -25,6 +25,7 @@ This E-Commerce project is a full-stack web application that allows users to bro
 
 - React
 - Tailwind CSS
+- Shadcn UI
 - Axios
 - React Router
 - Redux
