@@ -115,15 +115,15 @@ E-Commerce/
 │   ├── public/              # Static assets (images, icons, etc.)
 │   │   ├── index.html       # Main HTML file for the React app
 │   │   └── favicon.ico      # Favicon for the application
-│   └── src/                 # React components, pages, and styles
-│       ├── components/      # Reusable React components
-│       ├── pages/           # Main pages of the application
-│       ├── styles/          # Global styles and Tailwind configs
-│       ├── App.js           # Main app component
-│       ├── index.js         # Entry point of React application
-│       └── utils/           # Utility functions
-│    ├── package.json        # Project metadata and dependencies
-│    └── .env                # Environment variables
+│   ├── src/                 # React components, pages, and styles
+│   │  ├── components/       # Reusable React components
+│   │  ├── pages/            # Main pages of the application
+│   │  ├── styles/           # Global styles and Tailwind configs
+│   │  ├── App.js            # Main app component
+│   │  ├── index.js          # Entry point of React application
+│   │  └── utils/            # Utility functions
+│   ├── package.json         # Project metadata and dependencies
+│   └── .env                 # Environment variables
 ├── server/                  # Backend code
 │   ├── controllers/         # API route controllers
 │   ├── models/              # Database models
