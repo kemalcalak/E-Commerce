@@ -38,6 +38,7 @@ This E-Commerce project is a full-stack web application that allows users to bro
 - Mongoose
 - JWT (JSON Web Token)
 - bcrypt
+- PayPal SDK
 - Cloudinary
 
 ## Getting Started
