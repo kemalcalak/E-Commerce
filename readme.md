@@ -111,28 +111,30 @@ npm start
 
 ```plaintext
 E-Commerce/
-├── client/                     # Frontend code
-│   ├── public/                 # Static assets (images, icons, etc.)
-│   │   ├── index.html         # Main HTML file for the React app
-│   │   └── favicon.ico        # Favicon for the application
-│   └── src/                   # React components, pages, and styles
-│       ├── components/        # Reusable React components
-│       ├── pages/            # Main pages of the application
-│       ├── styles/           # Global styles and Tailwind configs
+├── client/                  # Frontend code
+│   ├── public/              # Static assets (images, icons, etc.)
+│   │   ├── index.html       # Main HTML file for the React app
+│   │   └── favicon.ico      # Favicon for the application
+│   └── src/                 # React components, pages, and styles
+│       ├── components/      # Reusable React components
+│       ├── pages/           # Main pages of the application
+│       ├── styles/          # Global styles and Tailwind configs
 │       ├── App.js           # Main app component
 │       ├── index.js         # Entry point of React application
 │       └── utils/           # Utility functions
-├── server/                    # Backend code
-│   ├── controllers/          # API route controllers
+│    ├── package.json        # Project metadata and dependencies
+│    └── .env                # Environment variables
+├── server/                  # Backend code
+│   ├── controllers/         # API route controllers
 │   ├── models/              # Database models
 │   ├── routes/              # API routes definitions
 │   ├── middleware/          # Custom middleware
-│   ├── config/             # Configuration files
-│   ├── services/           # Business logic layer
-│   └── server.js           # Backend entry point
-├── .env                    # Environment variables
-├── package.json           # Project metadata and dependencies
-└──README.md             # Project documentation
+│   ├── config/              # Configuration files
+│   ├── services/            # Business logic layer
+│   ├── package.json         # Project metadata and dependencies
+│   ├── .env                 # Environment variables
+│   └── server.js            # Backend entry point
+└──README.md                 # Project documentation
 ```
 
 ## Contact
